@@ -1,0 +1,13 @@
+.nav {
+    grid-area: n;
+    background-color: bisque;
+    padding: 20px;
+    line-height: 35px;
+  }
+
+a {
+  text-decoration: none;
+  color: black; 
+}
+
+.active {color: magenta;}
