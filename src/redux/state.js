@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UNPT = 'UPDATE-NEW-POST-TEXT';
+
+
+
 let store = {
     _state: {
         profilePage: {
@@ -22,30 +27,37 @@ let store = {
             ]
         }
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
         console.log('state changed')
     },
-    addPost() {
-        let newPost = {
-            id:3,
-            message: this._state.profilePage.newPostText,
-            like:0
-        };
-        this._state.profilePage.postData.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText){
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
+
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+  
+    
+    dispatch(action) {
+        if (action.type === ADD_POST) {
+            let newPost = {
+                id:3,
+                message: this._state.profilePage.newPostText,
+                like:0
+            };
+            this._state.profilePage.postData.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === UNPT) {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
     }
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostActionCreator = (text) => ({type: UNPT, newText: text})
 
 export default store;
 window.store = store;
