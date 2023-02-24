@@ -25,6 +25,9 @@ let store = {
             ],
             NewMessageBody: ""
 
+        },
+        sideBar: {
+            
         }
     },
     _callSubscriber() {

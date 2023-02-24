@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Messenger from './components/Messenger/Messenger';
+import MessengerContainer from './components/Messenger/MessengerContainer';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
@@ -18,8 +18,8 @@ const App = (props) => {
         <Nav />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path="/messenger/*" element={<Messenger store={props.store} />} />
-            <Route path="/profile" element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />} />
+            <Route path="/messenger/*" element={<MessengerContainer store={props.store} />} />
+            <Route path="/profile" element={<Profile store={props.store} />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
@@ -31,6 +31,3 @@ const App = (props) => {
 }
 
 export default App;
-
-{/* <Route path="/messenger/*" element={<Messenger MessengerData={props.state.messengerPage.MessengerData} MessageData={props.state.messengerPage.MessageData} />} />
-<Route path="/profile" element={<Profile postData={props.state.profilePage.postData} />} /> */}
