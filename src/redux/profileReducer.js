@@ -6,7 +6,7 @@ let initialState = {
         { id: 1, message: 'Hi? how are you?', like: 10 },
         { id: 2, message: 'It" s my first post', like: 8 }
     ],
-    newPostText: 'WoW'
+    newPostText: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -17,16 +17,15 @@ const profileReducer = (state = initialState, action) => {
                 message: state.newPostText,
                 like: 0
             };
-            let stateCopy = {...state};
-            stateCopy.postData = [...state.postData];
-            stateCopy.postData.push(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
+            return {
+                ...state,
+                postData: [...state.postData, newPost],
+                newPostText: ''};
         }
         case UNPT: {
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                newPostText: action.newText};
         }
         default:
             return state;
