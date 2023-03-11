@@ -12,6 +12,9 @@ const Nav = () => {
         <NavLink to='/Messenger' className = { navData => navData.isActive ? classes.active : classes.item }>Messages</NavLink>
       </div>
       <div className={classes.item}>
+        <NavLink to='/Users' className = { navData => navData.isActive ? classes.active : classes.item }>Users</NavLink>
+      </div>
+      <div className={classes.item}>
         <NavLink to='/News' className = { navData => navData.isActive ? classes.active : classes.item }>News</NavLink>
       </div>
       <div className={classes.item}>
