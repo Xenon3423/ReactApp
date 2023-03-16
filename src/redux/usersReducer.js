@@ -2,13 +2,7 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
-let initialState = {
-    usersData: [ 
-        { id: 1, photoUrl: 'https://vsegda-pomnim.com/uploads/posts/2022-04/1650244828_59-vsegda-pomnim-com-p-astra-r-foto-63.jpg', followed: false, fullName: 'Alexander', status: 'Opel Astra GTC', location: {city: 'Krasnodar', country: 'Russia'} },
-        { id: 2, photoUrl: 'https://mobimg.b-cdn.net/v3/fetch/08/08166611dd3c60def4a4e6015f8d5397.jpeg', followed: true, fullName: 'John', status: 'Honda Civic 4D', location: {city: 'Krasnodar', country: 'Russia'} },
-        { id: 3, photoUrl: 'https://i.ytimg.com/vi/YrVbqDO46OI/maxresdefault.jpg', followed: false, fullName: 'Michael', status: 'Honda Civic Si', location: {city: 'Krasnodar', country: 'Russia'} }
-    ]
-};
+let initialState = {usersData: [{name: "Alex"}]};
 
 const userReducers = (state = initialState, action) => {
     switch (action.type) {
