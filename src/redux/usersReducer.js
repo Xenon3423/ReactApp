@@ -2,7 +2,7 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
-let initialState = {usersData: [{name: "Alex"}]};
+let initialState = {usersData: []};
 
 const userReducers = (state = initialState, action) => {
     switch (action.type) {
@@ -26,7 +26,7 @@ const userReducers = (state = initialState, action) => {
             return u;})}
         
         case SET_USERS: {
-            return {...state, users: [...state.usersData, action.usersData]}
+            return {...state, usersData: action.usersData}
             }
         
          default:
