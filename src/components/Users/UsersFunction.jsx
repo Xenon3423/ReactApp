@@ -3,6 +3,10 @@ import React from "react";
 import styles from "./User.module.css"
 import userPhoto from "./../../assets/image/1.png";
 
+
+//функциональная компонента Users
+
+
 let Users = (props) => {
     let getUsers = () => {
     if (props.usersData.length === 0) {
