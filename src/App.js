@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import MessengerContainer from './components/Messenger/MessengerContainer';
 import Nav from './components/Nav/Nav';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
@@ -21,7 +21,7 @@ const App = (props) => {
         <div className='app-wrapper-content'>
           <Routes>
             <Route path="/messenger/*" element={<MessengerContainer store={props.store} />} />
-            <Route path="/profile" element={<Profile store={props.store} />} />
+            <Route path="/profile/*" element={<ProfileContainer store={props.store} />} />
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
