@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 
 let Users = (props) => {
-debugger
+
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -29,21 +29,25 @@ debugger
                     </div>
                     <div>
                         {u.followed
-                            ? <button onClick={() => {
+                            ? <button disabled={props.followingInProgress} onClick={() => {
+                                props.toggleFollowingProgress(true);
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, { withCredentials: true, headers: { "API-KEY": "b12ce9c7-a407-496a-a8e7-17df99b65fd0" } })
                                     .then(response => {
                                         if (response.data.resultCode == 0) {
                                             props.unfollow(u.id);
                                         }
+                                        props.toggleFollowingProgress(false);
                                     });
 
                             }}>Unfollow</button>
-                            : <button onClick={() => {
+                            : <button disabled={props.followingInProgress} onClick={() => {
+                                props.toggleFollowingProgress(true);
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, { withCredentials: true, headers: { "API-KEY": "b12ce9c7-a407-496a-a8e7-17df99b65fd0" } })
                                     .then(response => {
                                         if (response.data.resultCode == 0) {
                                             props.follow(u.id);
                                         }
+                                        props.toggleFollowingProgress(false);
                                     });
 
 
