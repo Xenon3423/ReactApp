@@ -23,6 +23,9 @@ const Nav = () => {
       <div className={classes.item}>
         <NavLink to='/Settings' className = { navData => navData.isActive ? classes.active : classes.item }>Settings</NavLink>
       </div>
+      <div className={classes.item}>
+        <NavLink to='/login' className = { navData => navData.isActive ? classes.active : classes.item }>Sing Up</NavLink>
+      </div>
     </nav>
   )
 }

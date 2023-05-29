@@ -6,7 +6,8 @@ import Messenger from './Messenger';
 
 let mapStateToProps = (state) => {
     return {
-        messengerPage: state.messengerPage
+        messengerPage: state.messengerPage,
+        isAuth: state.auth.isAuth
     }
 }
 
