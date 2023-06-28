@@ -2,10 +2,7 @@ import React from "react";
 
 
 const Login = (props) => {
-    return
-    <div>
-        <h1>LOGIN</h1>
-    </div>
+    return <h1>LOGIN</h1>
 }
 
 export default Login;

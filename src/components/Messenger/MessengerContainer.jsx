@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import {updateNewMessageBodyCreator, sendMessageCreator} from './../../redux/messengerReducer';
 import Messenger from './Messenger';
 
@@ -18,6 +19,8 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const MessengerContainer = connect(mapStateToProps,mapDispatchToProps) (Messenger);
+let AuthRedirectComponent = withAuthRedirect(Messenger);
+
+const MessengerContainer = connect(mapStateToProps,mapDispatchToProps) (AuthRedirectComponent);
 
 export default MessengerContainer;
