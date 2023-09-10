@@ -15,8 +15,7 @@ export const unfollowAPI = (userID) => {
 }
 
 export const getProfileAPI = (userID) => {
-    debugger;
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userID, { withCredentials: true })
+    return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userID, { withCredentials: true });
 }
 
 export const authAPI = () => {
