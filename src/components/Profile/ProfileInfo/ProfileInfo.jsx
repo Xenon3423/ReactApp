@@ -18,7 +18,7 @@ const ProfileInfo = (props) => {
         <img src='https://i.pinimg.com/originals/c4/cf/e2/c4cfe2f99a9392523fdc8fb013874dca.jpg'></img>
       </div>
       <div>
-        <ProfileStatus status={"Hellowwwww"} />
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       </div>
       <div>
         {props.profile.contacts.facebook}
