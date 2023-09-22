@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import {updateNewMessageBodyCreator, sendMessageCreator} from './../../redux/messengerReducer';
+import { sendMessageCreator } from './../../redux/messengerReducer';
 import Messenger from './Messenger';
 import { compose } from 'redux';
 
@@ -15,12 +15,11 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageBody: (body) => {dispatch(updateNewMessageBodyCreator(body))},
-        sendMessage: () => {dispatch(sendMessageCreator())}
+        sendMessage: (newMessageBody) => { dispatch(sendMessageCreator(newMessageBody)) }
     }
 }
 
 export default compose(
-    connect(mapStateToProps,mapDispatchToProps),
+    connect(mapStateToProps, mapDispatchToProps),
     withAuthRedirect
 )(Messenger);
