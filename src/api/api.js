@@ -26,6 +26,6 @@ export const updateStatusAPI = (status) => {
     return axios.put(`https://social-network.samuraijs.com/api/1.0/profile/status`, {status: status}, { withCredentials: true })
 }
 
-export const authAPI = () => {
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true })
+export const authAPI = (email, password, rememberMe=false) => {
+    return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true }), axios.post(`https://social-network.samuraijs.com/api/1.0/auth/login`, {email, password, rememberMe}, { withCredentials: true }), axios.delete(`https://social-network.samuraijs.com/api/1.0/auth/login`, { withCredentials: true })
 }
